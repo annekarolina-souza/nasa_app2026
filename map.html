@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>AgroMonitor — Mapa de Monitoramento Agrícola</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+  <div class="monitor-frame">
+    <!-- SIDEBAR COMPARTILHADA -->
+    <aside class="sidebar" aria-label="Navegação Principal">
+      <a href="index.html" class="sidebar-logo" title="AgroMonitor">A</a>
+
+      <nav class="sidebar-nav">
+        <a href="index.html" class="nav-item" data-tooltip="Dashboard">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M3 9.5L12 3l9 6.5V20a1 1 0 0 1-1 1h-5v-6H9v6H4a1 1 0 0 1-1-1V9.5z"/>
+          </svg>
+          <span class="curve-bottom"></span>
+        </a>
+
+        <a href="map.html" class="nav-item active" data-tooltip="Mapa">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round">
+            <polygon points="1 6 1 22 8 18 16 22 23 18 23 2 16 6 8 2 1 6"></polygon>
+            <line x1="8" y1="2" x2="8" y2="18"></line>
+            <line x1="16" y1="6" x2="16" y2="22"></line>
+          </svg>
+          <span class="curve-bottom"></span>
+        </a>
+
+        <a href="trends.html" class="nav-item" data-tooltip="Tendências">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round">
+            <polyline points="22 7 13.5 15.5 8.5 10.5 2 17"></polyline>
+            <polyline points="16 7 22 7 22 13"></polyline>
+          </svg>
+          <span class="curve-bottom"></span>
+        </a>
+
+        <a href="crops.html" class="nav-item" data-tooltip="Minhas Safras">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M11 20A7 7 0 0 1 9.8 6.1C15.5 5 17 4.48 19 2c1 2 2 4.18 2 8 0 5.5-4.78 10-10 10Z"></path>
+            <path d="M2 21c0-3 1.85-5.36 5.08-6C9.5 14.52 12 13 13 12"></path>
+          </svg>
+          <span class="curve-bottom"></span>
+        </a>
+
+        <a href="settings.html" class="nav-item" data-tooltip="Configurações">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="12" cy="12" r="3"></circle>
+            <path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 1 1-2.83 2.83l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-4 0v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 1 1-2.83-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1 0-4h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 1 1 2.83-2.83l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 4 0v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 1 1 2.83 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 0 4h-.09a1.65 1.65 0 0 0-1.51 1z"></path>
+          </svg>
+          <span class="curve-bottom"></span>
+        </a>
+      </nav>
+
+      <div class="sidebar-footer">
+        <a href="login.html" class="logout-btn" data-tooltip="Sair">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"></path>
+            <polyline points="16 17 21 12 16 7"></polyline>
+            <line x1="21" y1="12" x2="9" y2="12"></line>
+          </svg>
+        </a>
+      </div>
+    </aside>
+
+    <!-- ÁREA PRINCIPAL -->
+    <div class="main-wrapper">
+      <!-- TOPBAR COMPARTILHADA -->
+      <header class="topbar">
+        <div class="search-box">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="11" cy="11" r="8"></circle>
+            <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+          </svg>
+          <input type="search" id="globalSearchInput" placeholder="Search..." aria-label="Buscar no painel" />
+        </div>
+
+        <div class="topbar-actions">
+          <div class="notification-wrapper">
+            <button type="button" class="icon-btn" id="notifToggleBtn" aria-label="Notificações">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9"></path>
+                <path d="M13.73 21a2 2 0 0 1-3.46 0"></path>
+              </svg>
+              <span class="notif-badge"></span>
+            </button>
+            <div class="notif-dropdown" id="notifDropdown">
+              <div class="notif-header">
+                <span>Alertas Geoespaciais</span>
+                <span class="badge badge-green">GPS Ativo</span>
+              </div>
+              <div class="notif-item">
+                <strong>Polígono Estufa 01 Calibrado</strong>
+                <span>Coordenadas RTK sincronizadas com sucesso.</span>
+              </div>
+            </div>
+          </div>
+
+          <button type="button" class="lang-selector" id="langToggleBtn">
+            <span id="currentLangLabel">EN</span>
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <polyline points="6 9 12 15 18 9"></polyline>
+            </svg>
+          </button>
+
+          <div class="user-profile">
+            <div class="user-info">
+              <div class="user-name">Anne Souza</div>
+              <div class="user-role">Engenharia</div>
+            </div>
+            <div class="user-avatar">AS</div>
+          </div>
+        </div>
+      </header>
+
+      <!-- CONTEÚDO DO MAPA -->
+      <main>
+        <div class="page-header">
+          <div>
+            <h1 class="page-title">Mapa de Monitoramento Agrícola</h1>
+            <p class="page-subtitle">Geolocalização dos talhões, sensores de solo e zonas de manejo.</p>
+          </div>
+          <span class="badge badge-orange">API Map Ready (Leaflet / Google Maps)</span>
+        </div>
+
+        <div class="map-layout">
+          <!-- Viewport Reservada para Integração Futura -->
+          <section class="map-viewport" id="mapApiContainer" aria-label="Área reservada para mapa interativo">
+            <!-- Marcadores Simulados -->
+            <div class="map-pin selected" data-plot="norte" style="top: 18%; left: 16%;">
+              <span class="pin-dot"></span>
+              <span>Talhão Norte (180 ha)</span>
+            </div>
+
+            <div class="map-pin" data-plot="sul" style="bottom: 20%; left: 22%;">
+              <span class="pin-dot warning"></span>
+              <span>Talhão Sul (145 ha)</span>
+            </div>
+
+            <div class="map-pin" data-plot="estufa" style="top: 24%; right: 14%;">
+              <span class="pin-dot"></span>
+              <span>Estufa 01 (12 ha)</span>
+            </div>
+
+            <!-- Aviso Claro de Espaço Reservado para API -->
+            <div class="map-api-notice">
+              <svg width="34" height="34" viewBox="0 0 24 24" fill="none" stroke="#FF9F1C" stroke-width="2">
+                <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
+                <circle cx="12" cy="10" r="3"></circle>
+              </svg>
+              <h3>Viewport Pronta para API de Mapas</h3>
+              <p>
+                Container estruturado (<code>#mapApiContainer</code>) preparado para renderização dinâmica via <strong>Google Maps JavaScript API</strong>, <strong>Leaflet.js</strong> ou <strong>Mapbox GL</strong> com camadas GeoJSON.
+              </p>
+              <span class="badge badge-green" id="selectedPlotCoord">Lat: -22.9068 | Lng: -47.0616</span>
+            </div>
+          </section>
+
+          <!-- Painel Lateral de Talhões -->
+          <aside class="plot-list">
+            <div class="plot-card active" data-plot="norte" data-coord="Lat: -22.9068 | Lng: -47.0616">
+              <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:6px;">
+                <strong>Talhão Norte</strong>
+                <span class="badge badge-green">Ótimo</span>
+              </div>
+              <p style="font-size:0.78rem;color:var(--text-secondary);margin-bottom:8px;">Cultura: Soja Intacta • 180 ha</p>
+              <div style="font-size:0.75rem;display:flex;justify-content:space-between;">
+                <span>Umidade: <strong>69%</strong></span>
+                <span>Temp: <strong>24.5°C</strong></span>
+              </div>
+            </div>
+
+            <div class="plot-card" data-plot="sul" data-coord="Lat: -22.9184 | Lng: -47.0742">
+              <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:6px;">
+                <strong>Talhão Sul</strong>
+                <span class="badge badge-orange">Atenção</span>
+              </div>
+              <p style="font-size:0.78rem;color:var(--text-secondary);margin-bottom:8px;">Cultura: Milho Segunda Safra • 145 ha</p>
+              <div style="font-size:0.75rem;display:flex;justify-content:space-between;">
+                <span>Umidade: <strong>44%</strong></span>
+                <span>Temp: <strong>27.8°C</strong></span>
+              </div>
+            </div>
+
+            <div class="plot-card" data-plot="estufa" data-coord="Lat: -22.9012 | Lng: -47.0539">
+              <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:6px;">
+                <strong>Estufa 01</strong>
+                <span class="badge badge-info">Controlado</span>
+              </div>
+              <p style="font-size:0.78rem;color:var(--text-secondary);margin-bottom:8px;">Cultura: Mudas Experimentais • 12 ha</p>
+              <div style="font-size:0.75rem;display:flex;justify-content:space-between;">
+                <span>Umidade: <strong>76%</strong></span>
+                <span>Temp: <strong>22.1°C</strong></span>
+              </div>
+            </div>
+          </aside>
+        </div>
+      </main>
+    </div>
+  </div>
+
+  <script src="js/main.js"></script>
+  <script>
+    // Interação local dos marcadores e cards de talhão
+    document.querySelectorAll('.plot-card').forEach(card => {
+      card.addEventListener('click', () => {
+        document.querySelectorAll('.plot-card').forEach(c => c.classList.remove('active'));
+        document.querySelectorAll('.map-pin').forEach(p => p.classList.remove('selected'));
+        card.classList.add('active');
+        const plotId = card.dataset.plot;
+        const pin = document.querySelector(`.map-pin[data-plot="${plotId}"]`);
+        if (pin) pin.classList.add('selected');
+        document.getElementById('selectedPlotCoord').textContent = card.dataset.coord;
+      });
+    });
+  </script>
+</body>
+</html>

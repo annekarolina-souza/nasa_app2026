@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>AgroMonitor — Analisador de Tendências Agrícolas</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+  <div class="monitor-frame">
+    <!-- SIDEBAR COMPARTILHADA -->
+    <aside class="sidebar" aria-label="Navegação Principal">
+      <a href="index.html" class="sidebar-logo" title="AgroMonitor">A</a>
+
+      <nav class="sidebar-nav">
+        <a href="index.html" class="nav-item" data-tooltip="Dashboard">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M3 9.5L12 3l9 6.5V20a1 1 0 0 1-1 1h-5v-6H9v6H4a1 1 0 0 1-1-1V9.5z"/>
+          </svg>
+          <span class="curve-bottom"></span>
+        </a>
+
+        <a href="map.html" class="nav-item" data-tooltip="Mapa">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round">
+            <polygon points="1 6 1 22 8 18 16 22 23 18 23 2 16 6 8 2 1 6"></polygon>
+            <line x1="8" y1="2" x2="8" y2="18"></line>
+            <line x1="16" y1="6" x2="16" y2="22"></line>
+          </svg>
+          <span class="curve-bottom"></span>
+        </a>
+
+        <a href="trends.html" class="nav-item active" data-tooltip="Tendências">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round">
+            <polyline points="22 7 13.5 15.5 8.5 10.5 2 17"></polyline>
+            <polyline points="16 7 22 7 22 13"></polyline>
+          </svg>
+          <span class="curve-bottom"></span>
+        </a>
+
+        <a href="crops.html" class="nav-item" data-tooltip="Minhas Safras">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M11 20A7 7 0 0 1 9.8 6.1C15.5 5 17 4.48 19 2c1 2 2 4.18 2 8 0 5.5-4.78 10-10 10Z"></path>
+            <path d="M2 21c0-3 1.85-5.36 5.08-6C9.5 14.52 12 13 13 12"></path>
+          </svg>
+          <span class="curve-bottom"></span>
+        </a>
+
+        <a href="settings.html" class="nav-item" data-tooltip="Configurações">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="12" cy="12" r="3"></circle>
+            <path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 1 1-2.83 2.83l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-4 0v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 1 1-2.83-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1 0-4h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 1 1 2.83-2.83l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 4 0v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 1 1 2.83 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 0 4h-.09a1.65 1.65 0 0 0-1.51 1z"></path>
+          </svg>
+          <span class="curve-bottom"></span>
+        </a>
+      </nav>
+
+      <div class="sidebar-footer">
+        <a href="login.html" class="logout-btn" data-tooltip="Sair">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"></path>
+            <polyline points="16 17 21 12 16 7"></polyline>
+            <line x1="21" y1="12" x2="9" y2="12"></line>
+          </svg>
+        </a>
+      </div>
+    </aside>
+
+    <!-- ÁREA PRINCIPAL -->
+    <div class="main-wrapper">
+      <!-- TOPBAR COMPARTILHADA -->
+      <header class="topbar">
+        <div class="search-box">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="11" cy="11" r="8"></circle>
+            <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+          </svg>
+          <input type="search" id="globalSearchInput" placeholder="Search..." aria-label="Buscar no painel" />
+        </div>
+
+        <div class="topbar-actions">
+          <div class="notification-wrapper">
+            <button type="button" class="icon-btn" id="notifToggleBtn" aria-label="Notificações">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9"></path>
+                <path d="M13.73 21a2 2 0 0 1-3.46 0"></path>
+              </svg>
+              <span class="notif-badge"></span>
+            </button>
+            <div class="notif-dropdown" id="notifDropdown">
+              <div class="notif-header">
+                <span>Modelos Preditivos</span>
+                <span class="badge badge-info">Atualizado</span>
+              </div>
+              <div class="notif-item">
+                <strong>Alerta de Potássio (K)</strong>
+                <span>Ciclo C4 apresentou leve queda abaixo do limiar ideal.</span>
+              </div>
+            </div>
+          </div>
+
+          <button type="button" class="lang-selector" id="langToggleBtn">
+            <span id="currentLangLabel">EN</span>
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <polyline points="6 9 12 15 18 9"></polyline>
+            </svg>
+          </button>
+
+          <div class="user-profile">
+            <div class="user-info">
+              <div class="user-name">Anne Souza</div>
+              <div class="user-role">Engenharia</div>
+            </div>
+            <div class="user-avatar">AS</div>
+          </div>
+        </div>
+      </header>
+
+      <!-- CONTEÚDO ANALISADOR DE TENDÊNCIAS -->
+      <main>
+        <div class="page-header">
+          <div>
+            <h1 class="page-title">Analisador de Tendências Agrícolas</h1>
+            <p class="page-subtitle">Modelagem preditiva de rendimento, precipitação e balanço nutricional NPK.</p>
+          </div>
+
+          <!-- Filtros de Período -->
+          <div class="pill-toggle" id="periodFilterGroup" role="group" aria-label="Filtro de Período">
+            <button type="button" data-period="daily">Diário</button>
+            <button type="button" class="active" data-period="weekly">Semanal</button>
+            <button type="button" data-period="monthly">Mensal</button>
+          </div>
+        </div>
+
+        <div class="trends-grid">
+          <!-- GRÁFICO 1: Produtividade Histórica vs. Previsão de Chuva -->
+          <article class="chart-card">
+            <div class="chart-header">
+              <div>
+                <h3>Produtividade Histórica vs. Previsão de Chuva</h3>
+                <p>Correlação entre índice de rendimento (sc/ha) e precipitação (mm)</p>
+              </div>
+              <span class="badge badge-green">+8.4% proj.</span>
+            </div>
+
+            <div class="chart-container">
+              <canvas id="productivityRainCanvas"></canvas>
+              <div class="chart-tooltip" id="tooltipChart1"></div>
+            </div>
+
+            <div class="chart-legend">
+              <div class="legend-item">
+                <span class="legend-dot" style="background:#2d6a4f;"></span>
+                <span>Produtividade (sc/ha)</span>
+              </div>
+              <div class="legend-item">
+                <span class="legend-dot" style="background:#ff9f1c;"></span>
+                <span>Previsão de Chuva (mm)</span>
+              </div>
+            </div>
+          </article>
+
+          <!-- GRÁFICO 2: Análise de Nutrientes do Solo (NPK) por Ciclo -->
+          <article class="chart-card">
+            <div class="chart-header">
+              <div>
+                <h3>Análise de Nutrientes do Solo (NPK) por Ciclo</h3>
+                <p>Concentração média (mg/dm³) com limiar mínimo de alerta</p>
+              </div>
+              <span class="badge badge-orange">1 Alerta NPK</span>
+            </div>
+
+            <div class="chart-container">
+              <canvas id="npkBarCanvas"></canvas>
+              <div class="chart-tooltip" id="tooltipChart2"></div>
+            </div>
+
+            <div class="chart-legend">
+              <div class="legend-item">
+                <span class="legend-dot" style="background:#2d6a4f;"></span>
+                <span>Nitrogênio (N)</span>
+              </div>
+              <div class="legend-item">
+                <span class="legend-dot" style="background:#3a86ff;"></span>
+                <span>Fósforo (P)</span>
+              </div>
+              <div class="legend-item">
+                <span class="legend-dot" style="background:#ff9f1c;"></span>
+                <span>Potássio (K)</span>
+              </div>
+              <div class="legend-item">
+                <span class="legend-dot" style="background:#e63946;"></span>
+                <span>Abaixo do Ideal (Alerta)</span>
+              </div>
+            </div>
+          </article>
+        </div>
+      </main>
+    </div>
+  </div>
+
+  <script src="js/main.js"></script>
+  <script src="js/trends-charts.js"></script>
+</body>
+</html>

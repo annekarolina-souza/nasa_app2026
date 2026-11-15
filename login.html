@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>AgroMonitor — Seleção de Perfil</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  
+  <!-- Estilos Globais e do Login -->
+  <link rel="stylesheet" href="css/style.css" />
+  <link rel="stylesheet" href="css/login.css" />
+</head>
+<body class="login-page">
+  <main class="profiles-container">
+    <div class="profiles-header">
+      <h1>Who are you logging in as?</h1>
+      <p>Selecione seu perfil para acessar o painel de telemetria e gestão de safras.</p>
+    </div>
+
+    <!-- Grid de Perfis Estilo Netflix -->
+    <div class="profiles-grid" id="profilesGrid">
+      <!-- Perfil 1: Anne Souza -->
+      <article class="profile-card active" data-name="Anne Souza" data-role="Engenharia" data-initials="AS">
+        <div class="profile-avatar-box">AS</div>
+        <div class="profile-info">
+          <h3>Anne Souza</h3>
+          <span>Engenharia</span>
+        </div>
+      </article>
+
+      <!-- Perfil 2: Carlos Silva -->
+      <article class="profile-card" data-name="Carlos Silva" data-role="Agronomia" data-initials="CS">
+        <div class="profile-avatar-box orange-theme">CS</div>
+        <div class="profile-info">
+          <h3>Carlos Silva</h3>
+          <span>Agronomia</span>
+        </div>
+      </article>
+
+      <!-- Perfil 3: Beatriz Lima -->
+      <article class="profile-card" data-name="Beatriz Lima" data-role="Pesquisa & DADOS" data-initials="BL">
+        <div class="profile-avatar-box blue-theme">BL</div>
+        <div class="profile-info">
+          <h3>Beatriz Lima</h3>
+          <span>Pesquisa & DADOS</span>
+        </div>
+      </article>
+    </div>
+
+    <div class="profiles-footer">
+      <button type="button" class="btn-primary" id="enterDashboardBtn">
+        <span>Acessar Painel</span>
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <line x1="5" y1="12" x2="19" y2="12"></line>
+          <polyline points="12 5 19 12 12 19"></polyline>
+        </svg>
+      </button>
+    </div>
+  </main>
+
+  <script src="js/main.js"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      const cards = document.querySelectorAll('.profile-card');
+      const enterBtn = document.getElementById('enterDashboardBtn');
+      
+      let selectedProfile = {
+        name: 'Anne Souza',
+        role: 'Engenharia',
+        initials: 'AS'
+      };
+
+      // Interação de clique nos cards de perfil
+      cards.forEach(card => {
+        card.addEventListener('click', () => {
+          cards.forEach(c => c.classList.remove('active'));
+          card.classList.add('active');
+          
+          selectedProfile = {
+            name: card.dataset.name,
+            role: card.dataset.role,
+            initials: card.dataset.initials
+          };
+        });
+      });
+
+      // Ação do botão para entrar no Dashboard
+      enterBtn.addEventListener('click', () => {
+        // Salva a sessão ativa no localStorage para refletir no sistema
+        localStorage.setItem('agromonitor_active_user', JSON.stringify(selectedProfile));
+        
+        // Redireciona para o index.html
+        window.location.href = 'index.html';
+      });
+    });
+  </script>
+</body>
+</html>

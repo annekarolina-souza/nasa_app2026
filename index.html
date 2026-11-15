@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>AgroMonitor — Dashboard Principal</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+  <div class="monitor-frame">
+    <!-- SIDEBAR COMPARTILHADA -->
+    <aside class="sidebar" aria-label="Navegação Principal">
+      <a href="index.html" class="sidebar-logo" title="AgroMonitor">A</a>
+
+      <nav class="sidebar-nav">
+        <a href="index.html" class="nav-item active" data-tooltip="Dashboard">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M3 9.5L12 3l9 6.5V20a1 1 0 0 1-1 1h-5v-6H9v6H4a1 1 0 0 1-1-1V9.5z"/>
+          </svg>
+          <span class="curve-bottom"></span>
+        </a>
+
+        <a href="map.html" class="nav-item" data-tooltip="Mapa">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round">
+            <polygon points="1 6 1 22 8 18 16 22 23 18 23 2 16 6 8 2 1 6"></polygon>
+            <line x1="8" y1="2" x2="8" y2="18"></line>
+            <line x1="16" y1="6" x2="16" y2="22"></line>
+          </svg>
+          <span class="curve-bottom"></span>
+        </a>
+
+        <a href="trends.html" class="nav-item" data-tooltip="Tendências">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round">
+            <polyline points="22 7 13.5 15.5 8.5 10.5 2 17"></polyline>
+            <polyline points="16 7 22 7 22 13"></polyline>
+          </svg>
+          <span class="curve-bottom"></span>
+        </a>
+
+        <a href="crops.html" class="nav-item" data-tooltip="Minhas Safras">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M11 20A7 7 0 0 1 9.8 6.1C15.5 5 17 4.48 19 2c1 2 2 4.18 2 8 0 5.5-4.78 10-10 10Z"></path>
+            <path d="M2 21c0-3 1.85-5.36 5.08-6C9.5 14.52 12 13 13 12"></path>
+          </svg>
+          <span class="curve-bottom"></span>
+        </a>
+
+        <a href="settings.html" class="nav-item" data-tooltip="Configurações">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="12" cy="12" r="3"></circle>
+            <path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 1 1-2.83 2.83l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-4 0v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 1 1-2.83-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1 0-4h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 1 1 2.83-2.83l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 4 0v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 1 1 2.83 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 0 4h-.09a1.65 1.65 0 0 0-1.51 1z"></path>
+          </svg>
+          <span class="curve-bottom"></span>
+        </a>
+      </nav>
+
+      <div class="sidebar-footer">
+        <a href="login.html" class="logout-btn" data-tooltip="Sair">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"></path>
+            <polyline points="16 17 21 12 16 7"></polyline>
+            <line x1="21" y1="12" x2="9" y2="12"></line>
+          </svg>
+        </a>
+      </div>
+    </aside>
+
+    <!-- ÁREA PRINCIPAL -->
+    <div class="main-wrapper">
+      <!-- TOPBAR COMPARTILHADA -->
+      <header class="topbar">
+        <div class="search-box">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="11" cy="11" r="8"></circle>
+            <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+          </svg>
+          <input type="search" id="globalSearchInput" placeholder="Search..." aria-label="Buscar no painel" />
+        </div>
+
+        <div class="topbar-actions">
+          <div class="notification-wrapper">
+            <button type="button" class="icon-btn" id="notifToggleBtn" aria-label="Notificações">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9"></path>
+                <path d="M13.73 21a2 2 0 0 1-3.46 0"></path>
+              </svg>
+              <span class="notif-badge"></span>
+            </button>
+            <div class="notif-dropdown" id="notifDropdown">
+              <div class="notif-header">
+                <span>Alertas Agronômicos</span>
+                <span class="badge badge-orange">2 novos</span>
+              </div>
+              <div class="notif-item">
+                <strong>Umidade Ideal no Talhão Norte</strong>
+                <span>Sensor Solo #04 registrou 68% de umidade relativa.</span>
+              </div>
+              <div class="notif-item">
+                <strong>Janela de Colheita Próxima</strong>
+                <span>Safra de Milho Híbrido atinge maturação em 6 dias.</span>
+              </div>
+            </div>
+          </div>
+
+          <button type="button" class="lang-selector" id="langToggleBtn">
+            <span id="currentLangLabel">EN</span>
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <polyline points="6 9 12 15 18 9"></polyline>
+            </svg>
+          </button>
+
+          <div class="user-profile">
+            <div class="user-info">
+              <div class="user-name">Anne Souza</div>
+              <div class="user-role">Engenharia</div>
+            </div>
+            <div class="user-avatar">AS</div>
+          </div>
+        </div>
+      </header>
+
+      <!-- CONTEÚDO DASHBOARD (2 COLUNAS: 68% / 32%) -->
+      <main class="dashboard-grid">
+        <!-- Coluna Principal -->
+        <section class="dashboard-main">
+          <!-- Card de Boas-Vindas com Formas Geométricas & Plantas SVG -->
+          <article class="welcome-banner">
+            <div class="welcome-content">
+              <h1>Hi Anne.</h1>
+              <p>
+                Bem-vinda de volta ao painel telemétrico de precisão. Acompanhe o vigor das suas safras, umidade do solo e previsões climáticas em tempo real.
+              </p>
+              <a href="crops.html" class="btn-primary">View Details</a>
+            </div>
+
+            <!-- SVG Geométrico e Botânico Abstrato (Sem figuras humanas) -->
+            <div class="welcome-graphic" aria-hidden="true">
+              <svg viewBox="0 0 240 170" width="230" height="165" fill="none">
+                <rect x="28" y="20" width="130" height="130" rx="28" fill="#E6E8EC" />
+                <circle cx="176" cy="48" r="32" fill="#FF9F1C" fill-opacity="0.22" />
+                <circle cx="176" cy="48" r="16" fill="#FF9F1C" />
+                <path d="M72 145C72 102 104 72 146 72C146 114 114 145 72 145Z" fill="#2D6A4F" />
+                <path d="M126 145C126 114 150 92 182 92C182 123 158 145 126 145Z" fill="#40916C" />
+                <path d="M92 145V88M92 118L114 102M92 104L76 92" stroke="#FFFFFF" stroke-width="3" stroke-linecap="round" />
+                <rect x="44" y="138" width="152" height="10" rx="5" fill="#0F0F0F" />
+              </svg>
+            </div>
+          </article>
+
+          <!-- Seção Atalhos Rápidos / Visão Geral com Count-Up -->
+          <div>
+            <div class="section-header">
+              <h2>Visão Geral das Operações</h2>
+              <a href="crops.html" class="section-link">Ver Todas</a>
+            </div>
+
+            <div class="kpi-cards-row">
+              <article class="kpi-card">
+                <div>
+                  <h3>Área Cultivada</h3>
+                  <p>Total de hectares monitorados via telemetria orbital.</p>
+                </div>
+                <div class="kpi-footer">
+                  <span class="kpi-value" data-countup="420" data-suffix=" ha">0</span>
+                  <span class="badge badge-green">+12%</span>
+                </div>
+              </article>
+
+              <article class="kpi-card featured-dark">
+                <div>
+                  <h3>Eficiência Hídrica</h3>
+                  <p>Otimização de irrigação inteligente nos talhões ativos.</p>
+                </div>
+                <div class="kpi-footer">
+                  <span class="kpi-value" data-countup="94" data-suffix="%">0</span>
+                  <span class="badge badge-orange">Ideal</span>
+                </div>
+              </article>
+
+              <article class="kpi-card">
+                <div>
+                  <h3>Safras Ativas</h3>
+                  <p>Cultivos atualmente em desenvolvimento ou pré-colheita.</p>
+                </div>
+                <div class="kpi-footer">
+                  <span class="kpi-value" id="dashActiveCropsCount" data-countup="4">0</span>
+                  <span class="badge badge-info">Em dia</span>
+                </div>
+              </article>
+            </div>
+          </div>
+
+          <!-- Bloco de Tendência Resumida -->
+          <article class="mini-analytics-card">
+            <div class="section-header">
+              <h2>Índice de Vigor Vegetativo (NDVI)</h2>
+              <div class="pill-toggle">
+                <button type="button" class="active">Semanal</button>
+                <button type="button" onclick="window.location.href='trends.html'">Mensal</button>
+              </div>
+            </div>
+            <svg viewBox="0 0 600 120" width="100%" height="110" fill="none">
+              <defs>
+                <linearGradient id="ndviGrad" x1="0" y1="0" x2="600" y2="0" gradientUnits="userSpaceOnUse">
+                  <stop offset="0%" stop-color="#2D6A4F" />
+                  <stop offset="100%" stop-color="#FF9F1C" />
+                </linearGradient>
+              </defs>
+              <path d="M10 92 C 75 40, 125 98, 195 62 C 265 26, 315 88, 390 46 C 460 12, 520 58, 590 20" stroke="url(#ndviGrad)" stroke-width="4" stroke-linecap="round" />
+              <circle cx="195" cy="62" r="5" fill="#0F0F0F" />
+              <circle cx="390" cy="46" r="5" fill="#0F0F0F" />
+              <circle cx="590" cy="20" r="6" fill="#FF9F1C" />
+            </svg>
+          </article>
+        </section>
+
+        <!-- Coluna Lateral (32%) -->
+        <aside class="dashboard-aside">
+          <div class="aside-stats-stack">
+            <div class="stat-row-item">
+              <div class="stat-row-left">
+                <div class="stat-icon-box orange">
+                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/>
+                  </svg>
+                </div>
+                <div class="stat-meta">
+                  <span>Produtividade Est.</span>
+                  <strong data-countup="86" data-suffix=" sc/ha">0</strong>
+                </div>
+              </div>
+              <span>&rsaquo;</span>
+            </div>
+
+            <div class="stat-row-item">
+              <div class="stat-row-left">
+                <div class="stat-icon-box blue">
+                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M12 2.69l5.66 5.66a8 8 0 1 1-11.31 0z"/>
+                  </svg>
+                </div>
+                <div class="stat-meta">
+                  <span>Umidade Média Solo</span>
+                  <strong data-countup="64" data-suffix="%">0</strong>
+                </div>
+              </div>
+              <span>&rsaquo;</span>
+            </div>
+
+            <div class="stat-row-item">
+              <div class="stat-row-left">
+                <div class="stat-icon-box green">
+                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/>
+                  </svg>
+                </div>
+                <div class="stat-meta">
+                  <span>Radiação Solar</span>
+                  <strong data-countup="912" data-suffix=" W/m²">0</strong>
+                </div>
+              </div>
+              <span>&rsaquo;</span>
+            </div>
+          </div>
+
+          <!-- Resumo Dinâmico de Safras Cadastradas -->
+          <div class="card-surface">
+            <div class="section-header">
+              <h2>Safras Recentes</h2>
+              <a href="crops.html" class="section-link">Gerenciar</a>
+            </div>
+            <div id="dashboardRecentCrops" style="display:flex;flex-direction:column;gap:10px;"></div>
+          </div>
+
+          <div class="promo-card">
+            <svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="#2D6A4F" stroke-width="2">
+              <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/>
+            </svg>
+            <p>Explore o <strong>Analisador de Tendências</strong> com projeção NPK e chuvas.</p>
+            <a href="trends.html" class="btn-primary">Abrir Tendências</a>
+          </div>
+        </aside>
+      </main>
+    </div>
+  </div>
+
+  <script src="js/main.js"></script>
+</body>
+</html>
